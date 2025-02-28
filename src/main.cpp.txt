@@ -1,0 +1,20 @@
+#include <iostream>
+#include <fstream>
+#include "sha256.h"
+
+int main() {
+    std::ifstream inputFile("data/book_of_mark.txt");
+
+    if (!inputFile.is_open()) {
+        std::cerr << "Error: Could not open the file." << std::endl;
+        return 1;
+    }
+
+    std::string bookText((std::istreambuf_iterator<char>(inputFile)), std::istreambuf_iterator<char>());
+    std::string hash = SHA256::hash(bookText);
+
+    std::cout << "SHA-256 Hash of the Book of Mark:" << std::endl;
+    std::cout << hash << std::endl;
+
+    return 0;
+}

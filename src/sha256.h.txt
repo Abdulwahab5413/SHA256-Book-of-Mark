@@ -1,0 +1,17 @@
+#ifndef SHA256_H
+#define SHA256_H
+
+#include <string>
+#include <vector>
+
+class SHA256 {
+public:
+    static std::string hash(const std::string& message);
+private:
+    static const uint32_t K[64];
+    static uint32_t rightRotate(uint32_t value, uint32_t bits);
+    static std::string padding(const std::string& message);
+    static std::vector<uint32_t> processMessage(const std::string& message);
+};
+
+#endif
