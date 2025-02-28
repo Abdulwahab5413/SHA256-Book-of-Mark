@@ -1,0 +1,27 @@
+# Minimum version of CMake required
+cmake_minimum_required(VERSION 3.10)
+
+# Project name and version
+project(SHA256_Book_of_Mark VERSION 1.0)
+
+# Set C++ standard
+set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD_REQUIRED True)
+
+# Add the source files for the project
+set(SOURCES
+    src/main.cpp        # Main program file
+    src/sha256.cpp      # SHA-256 implementation
+)
+
+# Include directories (header files)
+include_directories(include)
+
+# Create the executable
+add_executable(SHA256_Book_of_Mark ${SOURCES})
+
+# Link any external libraries here (if necessary)
+# For example, if you're using OpenSSL for SHA-256, link OpenSSL like this:
+# target_link_libraries(SHA256_Book_of_Mark OpenSSL::SSL OpenSSL::Crypto)
+
+# Optionally, include custom flags or settings here if needed
